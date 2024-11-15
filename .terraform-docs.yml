@@ -1,0 +1,70 @@
+---
+formatter: markdown table
+header-from: main.tf
+# yamllint disable rule:line-length
+content: |-
+  # Repospace Terraform Module
+
+  A helper module to create a standard repospace in Terraform Cloud and Github Enterprise.
+
+  ## Table of Contents
+
+  - [Overview][1]
+  - [Example Input][2]
+  - [Requirements][3]
+  - [Inputs][4]
+  - [Outputs][5]
+  - [Modules][6]
+  - [Resources][7]
+
+  ## Overview
+
+  {{ .Header }}
+
+  ## Example Input
+
+  ```terraform
+  {{- if .Module.RequiredInputs }}
+    #
+    #  REQUIRED VARIABLES
+    #
+    {{- range .Module.RequiredInputs }}
+    # TODO: update "{{ .Name }}" value
+    {{ .Name }}  = null
+    {{- end }}
+  {{- end }}
+  {{- if .Module.OptionalInputs }}
+    #
+    #  OPTIONAL VARIABLES
+    #
+    {{- range .Module.OptionalInputs }}
+    {{ .Name }}  = {{ .GetValue | printf "%s" }}
+    {{- end }}
+  {{- end }}
+  ```
+
+  {{ .Requirements }}{{"\n"}}
+  {{ .Inputs }}{{"\n"}}
+  {{ .Outputs }}{{"\n"}}
+  {{ .Modules }}{{"\n"}}
+  {{ .Resources }}{{"\n"}}
+  [1]: #overview
+  [2]: #example-input
+  [3]: #requirements
+  [4]: #inputs
+  [5]: #outputs
+  [6]: #modules
+  [7]: #resources
+
+# yamllint enable rule:line-length
+sort:
+  enabled: true
+output:
+  file: README.md
+  mode: replace
+  template: |-
+    {{ .Content }}{{"\n"}}
+settings:
+  indent: 2
+  read-comments: false
+  hide-empty: false
