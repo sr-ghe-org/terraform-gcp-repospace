@@ -11,8 +11,8 @@ locals {
 
 # setup the control repository.
 module "repository" {
-  source                 = "app.terraform.io/bankofnovascotia/repo/github"
-  version                = ">= 0.1.0, < 1.0.0"
+  source                 = "app.terraform.io/tfc-test-pool/repo/github"
+  version                = ">= 0.0.1, < 1.0.0"
   repository_description = "A control repository for ${var.workload_id} in the ${var.descriptor} context"
   repository_name        = "tfw-tfc-global-saas-${var.descriptor}-${var.workload_id}"
   repository_topics      = var.control_repository.topics
