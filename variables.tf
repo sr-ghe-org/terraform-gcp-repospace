@@ -59,27 +59,27 @@ variable "workload_id" {
   }
 }
 
-variable "workspaces" {
-  description = "The set of environments to establish workspaces for"
-  type = map(object({
-    environment = string
-    impact      = string
-    project_id  = string
-    region      = string
-    team_id     = string
-    wif = object({
-      gcp = object({
-        service_account = string
-        sa_project_id   = string
-        project_number  = string
-        pool_id         = string
-        provider_id     = string
-      })
-      # hve = object({
-      #   address   = string
-      #   auth_path = string
-      #   namespace = string
-      # })
-    })
-  }))
-}
+# variable "workspaces" {
+#   description = "The set of environments to establish workspaces for"
+#   type = map(object({
+#     environment = string
+#     impact      = string
+#     project_id  = string
+#     region      = string
+#     team_id     = string
+#     wif = object({
+#       gcp = object({
+#         service_account = string
+#         sa_project_id   = string
+#         project_number  = string
+#         pool_id         = string
+#         provider_id     = string
+#       })
+#       # hve = object({
+#       #   address   = string
+#       #   auth_path = string
+#       #   namespace = string
+#       # })
+#     })
+#   }))
+# }
